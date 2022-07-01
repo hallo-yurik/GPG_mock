@@ -12,3 +12,9 @@ window.game = {
     pause: function () {
     }
 }
+
+if (window.Playable) {
+    window.Playable.config = null;
+    window.Playable.ad_dynamic = null;
+    window.Playable.translations = null;
+}
