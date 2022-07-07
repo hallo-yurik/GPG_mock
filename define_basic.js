@@ -19,44 +19,18 @@ if (window.Playable) {
     window.Playable.translations = null;
 }
 
-/**
- * @author       Peter Hutsul <peter@greenpandagames.com>
- * @copyright    2021 GREEN PANDA GAMES
- * @license      {@link https://legal.ubi.com/privacypolicy/en-INTL}
- */
+var n = function(){}
 
-/**
- * The gp it is the main working object of Green Panda Playable template SDK.
- * You can access to global functions of it object
- *
- * Also you can listen to standard events from this object
- *
- * init - will call on very start of session
- *
- * ```javascript
- * gp.on('init', function () {});
- * gp.once('init', function () {}, context);
- * ```
- *
- * preboot - will before you playablw will be created
- *
- * ```javascript
- * gp.on('preboot', function () {});
- * ```
- *
- * render - will call after you playable will be rendered
- *
- * ```javascript
- * gp.on('render', function () {});
- * ```
- *
- * resize - will call after page will be resized
- *
- * ```javascript
- * gp.on('resize', function () {});
- * ```
- *
- */
+if (window.Banner == undefined)
+    window.Banner = {width:0,height:0,top:"0px",left:"0px",init:n,destroy:n}
+
+if (window.addyn == undefined)
+    window.addyn = {ready: true}
+
+if (window.analytics == undefined || (working_exh.indexOf(GPP_NETWORK) == -1)) {
+    window.analytics = {level:n,logEvent:n,setVariation:n,logError:n,countEvent:n}
+}
+
 window.gp = (function(globalContext)
 {
 
@@ -66,7 +40,7 @@ window.gp = (function(globalContext)
     globalContext.GPP_IOS_APP_STORE_URL = "{GPP_IOS_APP_STORE_URL}";
     globalContext.GPP_GOOGLE_PLAY_MARKET_URL = "{GPP_GOOGLE_PLAY_MARKET_URL}";
     globalContext.GPP_DESTINATION_URL = (/android/i.test(navigator.userAgent)) ? GPP_GOOGLE_PLAY_MARKET_URL : GPP_IOS_APP_STORE_URL;
-    globalContext.GPP_NETWORK = "{GPP_NETWORK}";
+    globalContext.GPP_NETWORK = "preview";
     globalContext.ad_dynamic = "{AD_DYNAMIC_DEFAULT}";
 
     globalContext.working_exh = ["unity", "vungle", "facebook", "tapjoy", "adcolony", "google", "ironsource", "snapchat", "applovin", "appreciate", "toutiao", "mintegral"]
